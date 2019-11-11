@@ -1,0 +1,28 @@
+import math as m
+
+class Vector:
+  def __init__(self, data: tuple = None, polar: bool = None):
+    if polar:
+      self.mA = data
+      self.xY = ((mA[0] * m.cos(mA[1])),(mA[0] * m.sin(mA[1])))
+    else:
+      self.xY = data
+      self.mA[0] = m.sqrt(m.pow(xY[0],2) + m.pow(xY[1],2))
+      self.mA[1] = m.radians(m.atan(xY[0]/xY[1]))
+
+  def update(self, data: tuple = None, polar: bool = None):
+    if polar:
+      self.mA = data
+      self.xY = ((mA[0] * m.cos(mA[1])),(mA[0] * m.sin(mA[1])))
+    else:
+      self.xY = data
+      self.mA[0] = m.sqrt(m.pow(xY[0],2) + m.pow(xY[1],2))
+      self.mA[1] = m.radians(m.atan(xY[0]/xY[1]))
+
+  def addVector(self, vect):
+    newXY = (None,None)
+    newXY[0] = self.XY[0] + vect.XY[0]
+    newXY[1] = self.XY[1] + vect.XY[1]
+    newVect = Vector(newXY, False)
+    return newVect
+
